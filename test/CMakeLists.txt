@@ -64,7 +64,7 @@ set_target_properties(catch_main PROPERTIES
     COMPILE_DEFINITIONS "$<$<CXX_COMPILER_ID:MSVC>:_SCL_SECURE_NO_WARNINGS>"
     COMPILE_OPTIONS "$<$<CXX_COMPILER_ID:MSVC>:/EHsc;$<$<CONFIG:Release>:/Od>>"
 )
-target_compile_features(catch_main PUBLIC cxx_std_11)
+#target_compile_features(catch_main PUBLIC cxx_std_11)
 target_include_directories(catch_main PRIVATE "thirdparty/catch")
 
 # https://stackoverflow.com/questions/2368811/how-to-set-warning-level-in-cmake
@@ -102,7 +102,7 @@ foreach(file ${files})
     )
 
     target_compile_definitions(${testcase} PRIVATE CATCH_CONFIG_FAST_COMPILE)
-    target_compile_features(${testcase} PRIVATE cxx_std_11)
+    #target_compile_features(${testcase} PRIVATE cxx_std_11)
     target_include_directories(${testcase} PRIVATE "thirdparty/catch")
     target_include_directories(${testcase} PRIVATE "thirdparty/fifo_map")
     target_include_directories(${testcase} PRIVATE ${NLOHMANN_JSON_INCLUDE_BUILD_DIR})
